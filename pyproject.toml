@@ -1,6 +1,45 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm>=6.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cookiecutter-nbis-project"
+description = "cookiecutter for NBIS projects"
+version = "0.0.0.9000"
+
 [tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q -v --keep-baked-projects"
+minversion = "7.0"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+addopts = "-ra -q --keep-baked-projects"
 testpaths = [
     "tests",
 ]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py39
+isolated_build = true
+		    
+[testenv]
+allowlist_externals =
+    git
+deps =
+    build
+    pytest
+    pytest-cookies
+    pytest-shutil
+    pytest-git
+    pytest-runner
+    pip>=7.0.0
+    wheel
+    cookiecutter
+changedir = {envtmpdir}
+commands = pytest {toxinidir}
+         {envbindir}/cookiecutter --no-input {toxinidir}
+	 git init project_name
+	 {envbindir}/pip install -e project_name
+	 project_name
+"""
