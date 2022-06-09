@@ -32,7 +32,7 @@ where = ["src"]
 version = {attr = "{{ cookiecutter.python_module }}.__version__"}
 
 [project.scripts]
-{{cookiecutter.python_module}} = "{{ cookiecutter.python_module }}.__main__:main"
+{{ cookiecutter.python_module }} = "{{ cookiecutter.python_module }}.__main__:main"
 
 [tool.pytest.ini_options]
 minversion = "6.0"

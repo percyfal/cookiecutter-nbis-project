@@ -53,5 +53,6 @@ commands = pytest {toxinidir}
          {envbindir}/cookiecutter --no-input {toxinidir}
 	 git init project_name
 	 {envbindir}/pip install -e project_name
-	 project_name
+	 project_name -h
+	 project_name example -h
 """
