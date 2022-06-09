@@ -25,4 +25,4 @@ jobs:
       - name: Run tests
         run: pytest
       - name: Run tox
-        run: tox
+        run: python -m tox
