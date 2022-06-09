@@ -16,13 +16,21 @@ addopts = "-ra -q --keep-baked-projects"
 testpaths = [
     "tests",
 ]
+dependencies = [
+    "cookiecutter",
+    "pytest",
+    "pytest-cookies",
+    "pytest-runner",
+    "pytest-cov",
+    "tox",
+]
 
 [tool.tox]
 legacy_tox_ini = """
 [tox]
 envlist = py39
 isolated_build = true
-		    
+
 [testenv]
 allowlist_externals =
     git
