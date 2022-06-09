@@ -6,6 +6,14 @@ build-backend = "setuptools.build_meta"
 name = "cookiecutter-nbis-project"
 description = "cookiecutter for NBIS projects"
 version = "0.0.0.9000"
+dependencies = [
+    "cookiecutter",
+    "pytest",
+    "pytest-cookies",
+    "pytest-runner",
+    "pytest-cov",
+    "tox",
+]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
@@ -15,14 +23,6 @@ filterwarnings = [
 addopts = "-ra -q --keep-baked-projects"
 testpaths = [
     "tests",
-]
-dependencies = [
-    "cookiecutter",
-    "pytest",
-    "pytest-cookies",
-    "pytest-runner",
-    "pytest-cov",
-    "tox",
 ]
 
 [tool.tox]
