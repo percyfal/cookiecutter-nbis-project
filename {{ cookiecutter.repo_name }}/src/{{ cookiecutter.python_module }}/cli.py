@@ -40,6 +40,7 @@ class DescriptionArgumentParser(ArgumentParser):
         self.exit(2, "%(prog)s: error: %(message)s\n" % args)
 
 
+
 def get_project_parser(arg_list=None):
     if arg_list is None:
         arg_list = sys.argv[1:]
@@ -75,20 +76,22 @@ def add_project_subcommand_parser(parser, arg_list=None):
 def main(arg_list=None):
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")  # noqa
     parser, arg_list = get_project_parser(arg_list)
-    try:
-        from nbis.cli import add_subcommand_parser
-
-        parser = add_subcommand_parser(parser, arg_list)
-    except Exception as e:
-        print(e)
-
-    parser = add_project_subcommand_parser(parser, arg_list=None)
-
     args = parser.parse_args(arg_list)
 
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
     del args.debug
+
+    try:
+        from nbis.cli import add_subcommand_parser
+
+        parser = add_subcommand_parser(parser, arg_list)
+    except Exception as e:
+        logger.debug(e)
+
+    parser = add_project_subcommand_parser(parser, arg_list=None)
+
+    args = parser.parse_args(arg_list)
 
 
 def get_subcommand_name(arguments) -> str:
