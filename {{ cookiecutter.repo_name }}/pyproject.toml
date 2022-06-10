@@ -40,3 +40,20 @@ addopts = "-ra -q"
 testpaths = [
     "tests",
 ]
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py39
+isolated_build = true
+
+[testenv]
+deps =
+    pytest
+    pytest-coverage
+    pytest-runner
+    pip>=22.1.0
+    wheel
+commands = pytest
+"""

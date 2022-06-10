@@ -40,14 +40,11 @@ class DescriptionArgumentParser(ArgumentParser):
         self.exit(2, "%(prog)s: error: %(message)s\n" % args)
 
 
-
 def get_project_parser(arg_list=None):
     if arg_list is None:
         arg_list = sys.argv[1:]
 
-    parser = DescriptionArgumentParser(
-        description=__doc__, prog="{{ cookiecutter.project_name }}"
-    )
+    parser = DescriptionArgumentParser(description=__doc__, prog="{{ cookiecutter.project_name }}")  # noqa
     parser.add_argument(
         "--version", action="version", version="%(prog)s " + __version__
     )
@@ -62,7 +59,9 @@ def get_project_parser(arg_list=None):
 
 def add_project_subcommand_parser(parser, arg_list=None):
     subcommand_name = get_subcommand_name(arg_list)
-    module = importlib.import_module("." + subcommand_name, subcommands.__name__)
+    module = importlib.import_module(
+        "." + subcommand_name, subcommands.__name__
+    )  # noqa
     subparsers = parser.add_subparsers()
     subparser = subparsers.add_parser(
         subcommand_name,
@@ -108,9 +107,7 @@ def get_subcommand_name(arguments) -> str:
         subcommand name
 
     """
-    parser = DescriptionArgumentParser(
-        description=__doc__, prog="{{ cookiecutter.project_name }}"
-    )
+    parser = DescriptionArgumentParser(description=__doc__, prog="{{ cookiecutter.project_name }}")  # noqa
     parser.add_argument("--version", action="version", version=__version__)
     subparsers = parser.add_subparsers()
 

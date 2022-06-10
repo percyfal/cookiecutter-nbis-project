@@ -40,19 +40,23 @@ allowlist_externals =
     git
 deps =
     build
+    pre-commit
     pytest
+    pytest-coverage
     pytest-cookies
     pytest-shutil
     pytest-git
     pytest-runner
-    pip>=7.0.0
+    pip>=22.1.0
     wheel
     cookiecutter
-changedir = {envtmpdir}
+changedir = {envtmpdir}/project_name
 commands = pytest {toxinidir}
-         {envbindir}/cookiecutter --no-input {toxinidir}
-	 git init project_name
-	 {envbindir}/pip install -e project_name
+         {envbindir}/cookiecutter --no-input {toxinidir} -o .. -f
+	 git init -b main .
+	 git add -f .
+         pre-commit
+	 {envbindir}/pip install -e .
 	 project_name -h
 	 project_name example -h
 """
