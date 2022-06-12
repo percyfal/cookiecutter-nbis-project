@@ -23,7 +23,10 @@ filterwarnings = [
 addopts = "-ra -q --keep-baked-projects"
 testpaths = [
     "tests",
-    "{{ cookiecutter.repo_name }}/src"
+]
+pythonpath = [
+    "{{ cookiecutter.repo_name }}/src",
+    "{{ cookiecutter.repo_name }}/src/{{ cookiecutter.python_module }}"
 ]
 
 
