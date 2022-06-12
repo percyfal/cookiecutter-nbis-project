@@ -23,6 +23,7 @@ filterwarnings = [
 addopts = "-ra -q --keep-baked-projects"
 testpaths = [
     "tests",
+    "{{ cookiecutter.repo_name }}/src"
 ]
 
 [tool.tox]
