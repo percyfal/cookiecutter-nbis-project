@@ -26,6 +26,7 @@ testpaths = [
     "{{ cookiecutter.repo_name }}/src"
 ]
 
+
 [tool.tox]
 legacy_tox_ini = """
 [tox]
