@@ -108,7 +108,7 @@ def make_subcommand_parser(subcommand_name, package):
     module = importlib.import_module("." + subcommand_name, package.__name__)
     subparser = subparsers.add_parser(
         subcommand_name,
-        help=module.__doc__.split("\n", maxsplit=1)[1],
+        help=module.__doc__.split("\n", maxsplit=2)[1],
         description=module.__doc__,
     )
     subparser.set_defaults(module_name=subcommand_name, runner=module.main)
@@ -130,7 +130,7 @@ def make_minimal_parser(package_list):
     for pkg in package_list:
         for module_name, docstring in subcommands_modules(pkg):
             subcommands_map[module_name] = pkg
-            help_str = docstring.split("\n", maxsplit=1)[1].replace("%", "%%")
+            help_str = docstring.split("\n", maxsplit=2)[1].replace("%", "%%")
             # fmt: off
             subparser = subparsers.add_parser(
                 module_name, help=help_str,
