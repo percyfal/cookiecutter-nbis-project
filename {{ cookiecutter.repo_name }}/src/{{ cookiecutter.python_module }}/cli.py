@@ -137,7 +137,7 @@ def make_minimal_parser(package_list):
                 description=docstring, add_help=False
             )
             # fmt: on
-        subparser.set_defaults(module_name=module_name)
+            subparser.set_defaults(module_name=module_name)
     return parser, subcommands_map
 
 
