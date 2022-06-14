@@ -85,6 +85,7 @@ def main(arg_list=None):
         logging.getLogger().setLevel(logging.DEBUG)
     del args.debug
 
+    args.project_name = "{{ cookiecutter.project_name }}"
     args.prog = parser.prog
     args.runner(args)
 
