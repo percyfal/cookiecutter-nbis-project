@@ -11,8 +11,8 @@ must contain at least an add_arguments function and a main function.
 
 def add_arguments(parser):
     parser.add_argument(
-        "--dry-run", "-n", action="store_true",
-        default=False, help="dry run" )
+        "--dry-run", "-n", action="store_true", default=False, help="dry run"
+    )
 
 
 def main(args):
