@@ -14,4 +14,4 @@ to
 # Requirements
 
 - [nbis-project-admin](https://github.com/percyfal/nbis-project-admin)
-  (recommended)
+
