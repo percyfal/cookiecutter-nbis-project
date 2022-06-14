@@ -46,9 +46,10 @@ def main(arg_list=None):
     top_parser = get_project_parser()
     minimal_parser, subcommands_map = cli.make_minimal_parser(top_parser, package_list)
     subcommand_name = cli.get_subcommand_name(minimal_parser, arg_list)
+    top_parser = get_project_parser()
     # fmt: off
     parser = cli.make_subcommand_parser(
-        subcommand_name, subcommands_map[subcommand_name]
+        top_parser, subcommand_name, subcommands_map[subcommand_name]
     )
     # fmt: on
 
