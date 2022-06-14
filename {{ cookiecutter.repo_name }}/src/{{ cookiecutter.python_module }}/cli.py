@@ -3,6 +3,7 @@
 import ast
 import importlib
 import logging
+import os
 import pkgutil
 import sys
 from argparse import ArgumentDefaultsHelpFormatter
@@ -85,6 +86,7 @@ def main(arg_list=None):
         logging.getLogger().setLevel(logging.DEBUG)
     del args.debug
 
+    args.project_name = os.path.basename(sys.argv[0])
     args.runner(args)
 
     return 0
