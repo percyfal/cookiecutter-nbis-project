@@ -3,7 +3,6 @@
 import ast
 import importlib
 import logging
-import os
 import pkgutil
 import sys
 from argparse import ArgumentDefaultsHelpFormatter
@@ -45,7 +44,7 @@ def get_project_parser():
     # fmt: off
     top_parser = DescriptionArgumentParser(
         description=__doc__,
-        prog="{{ cookiecutter.project_name }}"
+        prog="{{ cookiecutter.python_module }}"
     )
     top_parser.add_argument(
         "--version",
@@ -86,7 +85,7 @@ def main(arg_list=None):
         logging.getLogger().setLevel(logging.DEBUG)
     del args.debug
 
-    args.project_name = os.path.basename(sys.argv[0])
+    args.prog = parser.prog
     args.runner(args)
 
     return 0
