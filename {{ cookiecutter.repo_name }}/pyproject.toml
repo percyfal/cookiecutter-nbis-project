@@ -21,8 +21,8 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics"
 ]
 dependencies = [
-    # "nbis-project-admin @ git+https://github.com/percyfal/nbis-project-admin.git@main",
     'importlib-metadata; python_version>="3.7"',
+    "nbis-project-admin @ git+https://github.com/percyfal/nbis-project-admin.git@main"
 ]
 dynamic = ["version"]
 
