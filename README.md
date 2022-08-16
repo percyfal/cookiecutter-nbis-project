@@ -8,8 +8,9 @@ A cookiecutter template for [NBIS](https://nbis.se/) projects.
 
 This cookiecutter installs a bare minimum directory structure for
 [NBIS](https://nbis.se/) projects. Project administration is deployed
-to
+to helper module
 [nbis-project-admin](https://github.com/percyfal/nbis-project-admin).
+`nbis-admin` provides a set of commands for use in project management.
 
 # Usage
 
@@ -18,6 +19,12 @@ to
 	git init
 	git add -f .
 	pip install -e .
+
+
+Following installation, python modules added to the directory
+`src/project_name/subcommands` will automatically show up as a
+subcommand when issuing the command `project_name`.
+
 
 # Requirements
 
