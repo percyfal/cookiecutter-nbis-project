@@ -19,6 +19,7 @@ to helper module
 	git init
 	git add -f .
 	pip install -e .
+	project_name -h
 
 
 Following installation, python modules added to the directory
