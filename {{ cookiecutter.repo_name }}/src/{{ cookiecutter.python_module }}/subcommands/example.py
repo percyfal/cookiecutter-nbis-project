@@ -1,5 +1,4 @@
-"""
-Help for example subcommand.
+"""Help for example subcommand.
 
 This is an example help string.
 
