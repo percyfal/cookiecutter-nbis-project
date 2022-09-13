@@ -63,6 +63,6 @@ commands = pytest {toxinidir}
 	 git add -f .
          pre-commit
 	 {envbindir}/pip install -e .
-	 project_name -h
-	 project_name example -h
+	 project_name --help
+	 project_name admin --help
 """
