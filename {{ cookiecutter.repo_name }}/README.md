@@ -23,7 +23,7 @@ installed:
 
 	git init
 	git add -f .
-	pip install -e .
+	python -m pip install -e .
 	
 This will install the python module `{{ cookiecutter.project_name }}`
 which can be invoked as
