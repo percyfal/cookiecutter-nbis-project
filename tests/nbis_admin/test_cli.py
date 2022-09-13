@@ -14,9 +14,11 @@ def test_cli(project, runner):
     """Test that cli includes commands from nbis_project_admin and project"""
     sys.path.insert(0, str(project.parent))
     sys.path.insert(0, str(project))
-    from project_name.cli import cli, setup_commands
+    from project_name import commands
+    from project_name.cli import cli
+    from nbis.cli import setup_commands
 
-    setup_commands(cli)
+    setup_commands(commands, cli)
 
     results = runner.invoke(cli, [])
     assert "admin" in results.output

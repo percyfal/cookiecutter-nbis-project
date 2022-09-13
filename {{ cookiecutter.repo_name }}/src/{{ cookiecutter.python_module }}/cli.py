@@ -1,9 +1,11 @@
 """Console script for {{cookiecutter.project_name}}"""
 import logging
+import os
+import pathlib
 
 import click
 from nbis import decorators
-from nbis.cli import add_subcommands
+from nbis.cli import setup_commands
 
 from . import __version__
 from . import commands
@@ -26,12 +28,14 @@ def cli(ctx):
     )
     if ctx.obj["DEBUG"]:
         logging.getLogger().setLevel(logging.DEBUG)
+    try:
+        from {{cookiecutter.project_name}} import config
 
-
-def setup_commands(cli):
-    add_subcommands(commands, cli)
+        ctx.obj["ROOT"] = config.ROOT_DIR
+    except ImportError:
+        ctx.obj["ROOT"] = pathlib.Path(os.curdir)
 
 
 def main():
-    setup_commands(cli)
+    setup_commands(commands, cli)
     cli(obj={})
