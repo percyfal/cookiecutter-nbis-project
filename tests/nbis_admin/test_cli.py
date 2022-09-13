@@ -16,7 +16,7 @@ def test_cli(project, runner):
     sys.path.insert(0, str(project))
     from project_name.cli import cli, setup_commands
 
-    setup_commands()
+    setup_commands(cli)
 
     results = runner.invoke(cli, [])
     assert "admin" in results.output

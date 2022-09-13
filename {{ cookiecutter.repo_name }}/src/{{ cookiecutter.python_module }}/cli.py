@@ -28,10 +28,10 @@ def cli(ctx):
         logging.getLogger().setLevel(logging.DEBUG)
 
 
-def setup_commands():
-    add_subcommands(commands)
+def setup_commands(cli):
+    add_subcommands(commands, cli)
 
 
 def main():
-    setup_commands()
+    setup_commands(cli)
     cli(obj={})
