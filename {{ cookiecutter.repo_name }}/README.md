@@ -41,5 +41,5 @@ which can be invoked as
 ├── setup.cfg
 └── src                                                  <- source code
     └── {{ cookiecutter.project_name }}                  <- python module code
-        └── subcommands                                  <- python module subcommands
+        └── commands                                     <- python module commands
 ```
